@@ -6,4 +6,6 @@ const eleventyNavigation = {
 ---
 # About
 
-I am a person that writes stuff.
+i'm plush! on this blog you'll find some book reviews, code retrospectives, and other ramblings.
+
+mail me at plush@codeandcocoa.dev
