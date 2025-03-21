@@ -53,8 +53,8 @@ export default async function(eleventyConfig) {
 		stylesheet: "pretty-atom-feed.xsl",
 		templateData: {
 			eleventyNavigation: {
-				key: "Feed",
-				order: 4
+				key: "feed",
+				order: 5
 			}
 		},
 		collection: {
@@ -63,11 +63,13 @@ export default async function(eleventyConfig) {
 		},
 		metadata: {
 			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
+			title: "plush's ramblings",
+			subtitle: "I review books and stuff that interests me, and sometimes write code.",
+			base: "https://blog.codeandcocoa.dev/",
 			author: {
-				name: "Your Name"
+				name: "plush",
+				email: "plush@codeandcocoa.dev",
+				url: "https://codeandcocoa.dev"
 			}
 		}
 	});
