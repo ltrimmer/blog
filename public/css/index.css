@@ -335,7 +335,7 @@ header {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	text-transform: capitalize;
+	text-transform: lowercase;
 	font-style: normal
 	font-weight: bold;
 }
@@ -343,17 +343,14 @@ header {
 	align-self: center;
 }
 /* Tags Coloring */
-a.post-tag[href="/tags/another-tag/"] {
+a.post-tag[href="/tags/book-review/"] {
+	color: var(--ansi-eleven) !important;
+}
+a.post-tag[href="/tags/kaleidoscope-of-death/"] {
 	color: var(--ansi-one) !important;
 }
-a.post-tag[href="/tags/number-2/"] {
-	color: var(--ansi-two) !important;
-}
-a.post-tag[href="/tags/posts-with-two-tags/"] {
-	color: var(--ansi-three) !important;
-}
-a.post-tag[href="/tags/second-tag/"] {
-	color: var(--ansi-four) !important;
+a.post-tag[href="/tags/xi-zi-xu/"] {
+	color: var(--ansi-seven) !important;
 }
 
 /* Tags list */
