@@ -336,22 +336,36 @@ header {
 	align-items: center;
 	justify-content: center;
 	text-transform: capitalize;
-	font-style: italic;
+	font-style: normal
+	font-weight: bold;
 }
 .postlist-item > .post-tag {
 	align-self: center;
+}
+/* Tags Coloring */
+a.post-tag[href="/tags/another-tag/"] {
+	color: var(--ansi-one) !important;
+}
+a.post-tag[href="/tags/number-2/"] {
+	color: var(--ansi-two) !important;
+}
+a.post-tag[href="/tags/posts-with-two-tags/"] {
+	color: var(--ansi-three) !important;
+}
+a.post-tag[href="/tags/second-tag/"] {
+	color: var(--ansi-four) !important;
 }
 
 /* Tags list */
 .post-metadata {
 	display: inline-flex;
 	flex-wrap: wrap;
-	gap: .5em;
+	gap: 1em;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-.post-metadata time {
+/*.post-metadata time {
 	margin-right: 1em;
-}
+}*/
 
