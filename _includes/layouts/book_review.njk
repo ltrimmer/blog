@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
 <style>
 .dl-entry {
 	display: flex;
@@ -42,11 +42,11 @@ dl {
 <dd>
 {% for i in range(1, 6) -%}
 	{% if rating >= i %}
-	<i class="icon-star checked"></i>
+	<i class="fa fa-star checked"></i>
 	{% elif rating|float() + 0.5 == i|float() %}
-	<i class="icon-star-half-empty checked"></i>
+	<i class="fa fa-star-half checked"></i>
 	{% elif rating < i %}
-	<i class="icon-star-empty"></i>
+	<i class="fa fa-star-o"></i>
 	{% endif %}
 {%- endfor %}
 </dd>
