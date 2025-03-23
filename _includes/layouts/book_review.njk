@@ -1,7 +1,6 @@
 ---
 layout: layouts/base.njk
 ---
-<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
 <style>
 .dl-entry {
 	display: flex;
@@ -20,8 +19,9 @@ dl {
 .dl-entry.final {
 	padding-bottom: 0;
 }
-.checked {
-  color: orange;
+img.star {
+	width: 1em;
+	height: 1em;
 }
 </style>
 <h1>{{ title }}</h1>
@@ -40,13 +40,15 @@ dl {
 <div class="dl-entry">
 <dt>stars</dt>
 <dd>
+{# TODO figure out why eleventy expands img paths to content/... #}
+{# workaround for now is to tell 11ty to ignore processing the path w/ eleventy:ignore #}
 {% for i in range(1, 6) -%}
 	{% if rating >= i %}
-	<i class="fa fa-star checked"></i>
+	<img eleventy:ignore src="/img/star-full-gold.svg" alt="solid gold star" class="star"></img>
 	{% elif rating|float() + 0.5 == i|float() %}
-	<i class="fa fa-star-half checked"></i>
+	<img eleventy:ignore src="/img/star-half-gold.svg" alt="half-solid gold star" class="star"></img>
 	{% elif rating < i %}
-	<i class="fa fa-star-o"></i>
+	<img eleventy:ignore src="/img/star-empty-gold.svg" alt="empty gold star" class="star"></img>
 	{% endif %}
 {%- endfor %}
 </dd>
