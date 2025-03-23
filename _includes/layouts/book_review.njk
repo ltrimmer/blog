@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+---
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<style>
+.dl-entry {
+	display: flex;
+	padding-bottom: 0.5rem;
+}
+dd {
+	flex: 1;
+}
+dt {
+	flex-basis: 5rem;
+}
+dl {
+	border-left: 0.25rem solid var(--ansi-seven);
+	padding-left: 1em;
+}
+.dl-entry.final {
+	padding-bottom: 0;
+}
+.checked {
+  color: orange;
+}
+</style>
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | htmlDateString }}</time></li>
+	<li>tags</li>
+	<li>⩴</li>
+	{%- for tag in tags | filterTagList %}
+	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
+	{%- endfor %}
+</ul>
+
+<dl>
+<div class="dl-entry">
+<dt>stars</dt>
+<dd>
+{% for i in range(1, 6) -%}
+	{% if rating >= i %}
+	<i class="icon-star checked"></i>
+	{% elif rating|float() + 0.5 == i|float() %}
+	<i class="icon-star-half-empty checked"></i>
+	{% elif rating < i %}
+	<i class="icon-star-empty"></i>
+	{% endif %}
+{%- endfor %}
+</dd>
+</div>
+<div class="dl-entry">
+<dt>author</dt>
+<dd>{{ bookAuthor }}</dd>
+</div>
+<div class="dl-entry final">
+<dt>official link</dt>
+<dd><a href="{{ bookLink }}">buy here!</a></dd>
+</div>
+</dl>
+
+
+{{ content | safe }}
+
+{%- if collections.posts %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+{%- set nextPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+<ul class="links-nextprev">
+	{%- if previousPost %}<li class="links-nextprev-prev">⬐ previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+	{%- if nextPost %}<li class="links-nextprev-next">next ⬎<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %}

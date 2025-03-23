@@ -349,6 +349,12 @@ a.post-tag[href="/tags/book-review/"] {
 a.post-tag[href="/tags/kaleidoscope-of-death/"] {
 	color: var(--ansi-one) !important;
 }
+a.post-tag[href="/tags/horror/"] {
+	color: var(--ansi-thirteen) !important;
+}
+a.post-tag[href="/tags/danmei/"] {
+	color: var(--ansi-twelve) !important;
+}
 a.post-tag[href="/tags/xi-zi-xu/"] {
 	color: var(--ansi-seven) !important;
 }
