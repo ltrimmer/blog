@@ -20,8 +20,11 @@ dl {
 	padding-bottom: 0;
 }
 img.star {
-	width: 1em;
-	height: 1em;
+	width: 1rem;
+	height: 1rem;
+}
+.stars-container {
+	margin-top: 0.1rem;
 }
 </style>
 <h1>{{ title }}</h1>
@@ -39,7 +42,7 @@ img.star {
 <dl>
 <div class="dl-entry">
 <dt>stars</dt>
-<dd>
+<dd class="stars-container">
 {# TODO figure out why eleventy expands img paths to content/... #}
 {# workaround for now is to tell 11ty to ignore processing the path w/ eleventy:ignore #}
 {% for i in range(1, 6) -%}
