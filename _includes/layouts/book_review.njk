@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+---
+<style>
+.dl-entry {
+	display: flex;
+	padding-bottom: 0.5rem;
+}
+dd {
+	flex: 1;
+}
+dt {
+	flex-basis: 5rem;
+}
+dl {
+	border-left: 0.25rem solid var(--ansi-seven);
+	padding-left: 1em;
+}
+.dl-entry.final {
+	padding-bottom: 0;
+}
+img.star {
+	width: 1rem;
+	height: 1rem;
+}
+.stars-container {
+	margin-top: 0.1rem;
+}
+</style>
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | htmlDateString }}</time></li>
+	<li>tags</li>
+	<li>⩴</li>
+	{%- for tag in tags | filterBookTags(tags, bookAuthor) %}
+	{%- set tagUrl %}/tags/{{ tag | slugify }}{% endset %}
+	<li><a href="{{ tagUrl }}/" class="post-tag">{{ tag }}</a></li>
+	{%- endfor %}
+</ul>
+
+<dl>
+<div class="dl-entry">
+<dt>stars</dt>
+<dd class="stars-container">
+{# TODO figure out why eleventy expands img paths to content/... #}
+{# workaround for now is to tell 11ty to ignore processing the path w/ eleventy:ignore #}
+{% for i in range(1, 6) -%}
+	{% if rating >= i %}
+	<img eleventy:ignore src="/img/star-full-gold.svg" alt="solid gold star" class="star"></img>
+	{% elif rating|float() + 0.5 == i|float() %}
+	<img eleventy:ignore src="/img/star-half-gold.svg" alt="half-solid gold star" class="star"></img>
+	{% elif rating < i %}
+	<img eleventy:ignore src="/img/star-empty-gold.svg" alt="empty gold star" class="star"></img>
+	{% endif %}
+{%- endfor %}
+</dd>
+</div>
+<div class="dl-entry">
+<dt>author</dt>
+{%- set authorTag %}{{ tags | getAuthorTag(tags, bookAuthor) | slugify }}{% endset %}
+<dd><a href="/tags/{{ authorTag }}/" class="post-tag">{{ bookAuthor }}</a></dd>
+</div>
+<div class="dl-entry final">
+<dt>official link</dt>
+<dd><a href="{{ bookLink }}">buy here!</a></dd>
+</div>
+</dl>
+
+
+{{ content | safe }}
+
+{%- if collections.posts %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+{%- set nextPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+<ul class="links-nextprev">
+	{%- if previousPost %}<li class="links-nextprev-prev">⬐ previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+	{%- if nextPost %}<li class="links-nextprev-next">next ⬎<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %}
