@@ -1,32 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
-<style>
-.dl-entry {
-	display: flex;
-	padding-bottom: 0.5rem;
-}
-dd {
-	flex: 1;
-}
-dt {
-	flex-basis: 5rem;
-}
-dl {
-	border-left: 0.25rem solid var(--ansi-seven);
-	padding-left: 1em;
-}
-.dl-entry.final {
-	padding-bottom: 0;
-}
-img.star {
-	width: 1rem;
-	height: 1rem;
-}
-.stars-container {
-	margin-top: 0.1rem;
-}
-</style>
+{%- css %}{% include "public/css/review.css" %}{%- endcss %}
 {%- css %}{% include "public/css/toggle-tags.css" %}{%- endcss %}
 
 <h1>{{ title }}</h1>

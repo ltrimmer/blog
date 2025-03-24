@@ -1,0 +1,24 @@
+dd {
+	flex: 1;
+}
+dl {
+	border-left: 0.25rem solid var(--ansi-seven);
+	padding-left: 1rem;
+}
+.dl-entry {
+	display: flex;
+	padding-bottom: 0.5rem;
+}
+.dl-entry.final {
+	padding-bottom: 0;
+}
+dt {
+	flex-basis: 5rem;
+}
+img.star {
+	width: 1rem;
+	height: 1rem;
+}
+.stars-container {
+	margin-top: 0.1rem;
+}
