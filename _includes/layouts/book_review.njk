@@ -27,15 +27,16 @@ img.star {
 	margin-top: 0.1rem;
 }
 </style>
+{%- css %}{% include "public/css/toggle-tags.css" %}{%- endcss %}
+
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
 	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | htmlDateString }}</time></li>
-	<li>tags</li>
-	<li>⩴</li>
+	<li><button id="tag-toggler" onclick="toggleTags(this)">hide tags</button></li>
 	{%- for tag in tags | filterBookTags(tags, bookAuthor) %}
 	{%- set tagUrl %}/tags/{{ tag | slugify }}{% endset %}
-	<li><a href="{{ tagUrl }}/" class="post-tag">{{ tag }}</a></li>
+	<li class="closable"><a href="{{ tagUrl }}/" class="post-tag">{{ tag }}</a></li>
 	{%- endfor %}
 </ul>
 
@@ -80,3 +81,4 @@ img.star {
 </ul>
 {%- endif %}
 {%- endif %}
+<script src="/js/toggleTags.js"></script>

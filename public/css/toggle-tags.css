@@ -1,0 +1,7 @@
+#tag-toggler {
+	cursor: pointer;
+	background-color: var(--ansi-eight);
+	color: var(--foreground-color);
+	font-size: inherit;
+	border-color: var(--ansi-zero);
+}
