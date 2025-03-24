@@ -16,8 +16,8 @@ dt {
 	flex-basis: 5rem;
 }
 img.star {
-	width: 1rem;
-	height: 1rem;
+	width: 1rem !important;
+	height: 1rem !important;
 }
 .stars-container {
 	margin-top: 0.1rem;
